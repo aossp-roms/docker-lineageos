@@ -17,7 +17,7 @@ The main working directory is a shared folder on the host system, so the Docker 
 * If an image does not exist, ```docker build``` is executed first
 
 ```
-git clone https://github.com/stucki/docker-lineageos.git
+git clone https://github.com/aossp-roms/docker-lineageos.git
 cd docker-lineageos
 ./run.sh
 ```
@@ -38,8 +38,8 @@ If you're on Linux and want to use adb from within the container running with `-
 ### How to build LineageOS for your device
 
 ```
-repo init -u git://github.com/lineageos/android.git -b lineage-15.1
-repo sync -c -j 16
+repo init -u git://github.com/aossp-roms/aossp-repos.git -b lineage-15.1
+repo sync --no-clone-bundle --force-sync --no-tags --optimized-fetch -j$(nproc --all) -c
 source build/envsetup.sh
 breakfast <device codename>   # example: breakfast grouper
 brunch <device codename>      # example: brunch grouper
